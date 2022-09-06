@@ -1,0 +1,48 @@
+MainWindow:
+    Search:
+    Subreddit:
+    UserProfile:
+
+<Search>
+    results:search_results
+    viewclass: 'Label'
+    BoxLayout:
+        padding:dp(30)
+        cols:2
+        orientation:'vertical'
+        BoxLayout:
+            cols:2
+            orientation:'horizontal'
+            padding_x:dp(20)
+            size_hint_y:None
+            height:dp(30)
+            RoundedTextInput:
+                size_hint:(0.5,1)
+                id:search_box
+                hint_text:'Search for subreddits and users'
+                multiline:False
+                on_text_validate:root.search_func()
+                on_text:root.remove_item()
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
+            GridLayout:
+                id:search_results
+                cols: 1
+                padding: 10, 10
+                spacing: 10, 10
+                size_hint_y: None
+                height: self.minimum_height
+                row_default_height: 150
+
+
+<RoundedTextInput@TextInput>
+    background_color:(0,0,0,0)
+    background_normal:''
+    canvas.before:
+        Color:
+            rgba:(255,255,255,0.2)
+        RoundedRectangle
+            size:self.size
+            pos:self.pos
+            radius:[10]
