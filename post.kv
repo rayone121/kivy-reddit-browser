@@ -1,0 +1,36 @@
+#:import rgba kivy.utils.rgba
+#:import md_icons kivymd.icon_definitions.md_icons
+
+<Post>
+    id:post
+    color: rgba('#a00000')
+    canvas.before:
+        Color:
+            rgba: self.color
+        RoundedRectangle
+            size: self.size
+            pos:self.pos
+            radius:[10]
+    Label:
+        id:title
+        markup:True
+        pos_hint:{"center_x":0.4,"top":1.25}
+        size_hint:(.7,.3)
+        halign:'left'
+        text_size:self.size
+    Label:
+        id:sub
+        markup:True
+        pos_hint:{"center_x":0.65,"top":1.25}
+        size_hint:(.5,.3)
+        halign:'right'
+        text_size:self.size
+    Label:
+        id: ptext
+        markup: True
+        pos_hint: {"center_x":0.5,"top":0.9}
+        size_hint:(.9,.3)
+        halign:'left'
+        size_hint_y: None
+        text_size: self.width, None
+        height:self.texture_size[1]

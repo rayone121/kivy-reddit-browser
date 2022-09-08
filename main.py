@@ -6,7 +6,7 @@ from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.lang import Builder
 import requests
 from kivy.uix.widget import Widget
-from Post import Red_post
+from post import Post
 import json
 
 with open('credential.json', 'r') as f:
@@ -50,10 +50,10 @@ class Search(Screen):
                                           ))
             return
         for post in res.json()['data']['children']:
-            # self.results.add_widget(Label(text=post['data']['title']))
-            self.results.add_widget(Red_post(title=post['data']['title'],
-                                             ptext=post['data']['selftext']
-                                             ))
+            self.results.add_widget(Post(title=post['data']['title'],
+                                         ptext=post['data']['selftext'],
+                                         sub=post['data']['subreddit_name_prefixed']
+                                         ))
 
     def remove_item(self):
         self.ids.search_results.clear_widgets()

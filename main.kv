@@ -27,13 +27,16 @@ MainWindow:
             do_scroll_x: False
             do_scroll_y: True
             GridLayout:
+                #orientation: 'vertical'
+                #GridLayout:
                 id:search_results
                 cols: 1
-                padding: 10, 10
-                spacing: 10, 10
                 size_hint_y: None
                 height: self.minimum_height
-                row_default_height: 150
+                spacing: 10
+                padding: 10
+                row_default_height: dp(500)
+
 
 
 <RoundedTextInput@TextInput>
