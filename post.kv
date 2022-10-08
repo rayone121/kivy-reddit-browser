@@ -3,34 +3,52 @@
 
 <Post>
     id:post
+    size_hint_y: None
+    height: title.texture_size[1] + sub.texture_size[1] + ptext.texture_size[1]
     color: rgba('#a00000')
+    background_normal:''
     canvas.before:
         Color:
             rgba: self.color
         RoundedRectangle
-            size: self.size
+            size:self.size
             pos:self.pos
             radius:[10]
     Label:
         id:title
         markup:True
-        pos_hint:{"center_x":0.4,"top":1.25}
-        size_hint:(.7,.3)
-        halign:'left'
+        padding_x:dp(20)
+        pos: root.x,ptext.top
+        size_hint:(.5,.1)
+        #halign:'left'
         text_size:self.size
     Label:
         id:sub
+        padding_x:dp(20)
         markup:True
-        pos_hint:{"center_x":0.65,"top":1.25}
-        size_hint:(.5,.3)
-        halign:'right'
+        pos: root.center_x, ptext.top
+        size_hint:(.5,.1)
+        #halign:'left'
         text_size:self.size
     Label:
         id: ptext
         markup: True
-        pos_hint: {"center_x":0.5,"top":0.9}
+        pos_hint: {"center_x":0.5,"top":0.5}
         size_hint:(.9,.3)
-        halign:'left'
+        #halign:'left'
         size_hint_y: None
         text_size: self.width, None
-        height:self.texture_size[1]
+        #height:self.size
+
+
+<CustomLabel@Label>
+    background_color:(0,0,0,0)
+    background_normal:''
+    canvas.before:
+        Color:
+            rgba:rgba('#ffffff')
+        RoundedRectangle
+            size:self.size
+            pos:self.pos
+            radius:[10]
+

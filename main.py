@@ -35,6 +35,7 @@ headers['Authorization'] = f'bearer {token_id}'
 
 requests.get('https://oauth.reddit.com/api/v1/me', headers=headers).json()
 
+Builder.load_file('post.kv')
 
 class Search(Screen):
     def __init__(self, **kwargs):
@@ -57,7 +58,6 @@ class Search(Screen):
 
     def remove_item(self):
         self.ids.search_results.clear_widgets()
-
 
 class Subreddit(Screen):
     def __init__(self, **kwargs):

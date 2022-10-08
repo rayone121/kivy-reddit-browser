@@ -1,3 +1,7 @@
+#:import rgba kivy.utils.rgba
+#:import md_icons kivymd.icon_definitions.md_icons
+
+
 MainWindow:
     Search:
     Subreddit:
@@ -27,17 +31,13 @@ MainWindow:
             do_scroll_x: False
             do_scroll_y: True
             GridLayout:
-                #orientation: 'vertical'
-                #GridLayout:
                 id:search_results
-                cols: 1
-                size_hint_y: None
-                height: self.minimum_height
+                cols:1
+                size_hint_y:None
+                height:self.minimum_height
+                #row_default_height:dp(650)
                 spacing: 10
                 padding: 10
-                row_default_height: dp(500)
-
-
 
 <RoundedTextInput@TextInput>
     background_color:(0,0,0,0)
